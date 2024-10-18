@@ -4,13 +4,13 @@ import "./App.css";
 function App() {
   const [temp, setTemp] = useState("");
   const [word, setWord] = useState("");
-  const [size, setSize] = useState(400);
+  const [size, setSize] = useState(300);
   const [bgColor, setBgColor] = useState("f1f2f3");
   const [qrCode, setQrCode] = useState("");
 
   useEffect(() => {
     setQrCode(
-      `http://api.qrserver.com/v1/create-qr-code/?data=${word}!&size=${size}x${size}&bgcolor=${bgColor}`
+      `http://api.qrserver.com/v1/create-qr-code/? data=${word} &size=${size}x${size}&bgcolor=${bgColor}`
     );
   }, [word, size, bgColor]);
 
