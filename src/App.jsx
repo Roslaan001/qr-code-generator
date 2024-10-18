@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
@@ -24,7 +22,7 @@ function App() {
   return (
     <div className="Container">
       <h1 className="header">My QR Code Generator</h1>
-      <div className="">
+      <div className="input-generate">
         <input
           type="text"
           onChange={(e) => {
@@ -56,20 +54,21 @@ function App() {
           }}
         />
       </div>
-
-      <div className="output">
-        <img src={qrCode} alt="qr code image" />
-        <a
-          href={qrCode}
-          download="QRCode"
-          className="btn-download"
-          onChange={(e) => {
-            setSize(e.target.value);
-          }}
-        >
-          <button type="button">Download</button>
-        </a>
-      </div>
+      {word && (
+        <div className="output">
+          <img src={qrCode} alt="qr code image" />
+          <a
+            href={qrCode}
+            download="QRCode"
+            className="btn-download"
+            onChange={(e) => {
+              setSize(e.target.value);
+            }}
+          >
+            <button type="button">Download</button>
+          </a>
+        </div>
+      )}
     </div>
   );
 }
